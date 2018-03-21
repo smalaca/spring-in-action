@@ -1,5 +1,7 @@
-package com.smalaca.spring.ioc.xmlbased.service;
+package com.smalaca.spring.componenttests.ioc.xmlbased.service;
 
+import com.smalaca.spring.ioc.xmlbased.service.BeansService;
+import com.smalaca.spring.ioc.xmlbased.service.NotExistingBeanException;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +23,7 @@ public class BeansServiceTest {
         Throwable exception = catchThrowable(() -> beansService.getBeanDto(SOME_ID));
 
         assertThat(exception)
-                .isInstanceOf(NotExistingBean.class)
+                .isInstanceOf(NotExistingBeanException.class)
                 .hasMessage("There is no bean with given id: " + SOME_ID);
     }
 }
