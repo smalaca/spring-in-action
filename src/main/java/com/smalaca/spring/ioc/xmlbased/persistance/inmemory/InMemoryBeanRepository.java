@@ -35,10 +35,6 @@ class InMemoryBeanRepository implements BeanRepository {
 
     @Override
     public Bean persist(Bean bean) {
-        if (existWithName(bean.asDto().name())) {
-            throw new IllegalArgumentException("Bean with name: \"" + bean.asDto().name() + "\" already exist.");
-        }
-
         String id = uniqueIdentifierFactory.anId();
         Bean beanWithId = Bean.Builder.aBean(bean).withId(id).build();
         beans.put(id, beanWithId);

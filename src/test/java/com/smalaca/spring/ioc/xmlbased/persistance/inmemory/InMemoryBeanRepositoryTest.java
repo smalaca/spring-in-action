@@ -39,17 +39,6 @@ public class InMemoryBeanRepositoryTest {
     }
 
     @Test
-    public void shouldNotAllowToPersistBeanWithTheSameNameTwice() {
-        givenSomePersistedBean();
-
-        Throwable exception = catchThrowable(() -> repository.persist(givenBean(SOME_NAME, DIFFERENT_DESCRIPTION)));
-
-        assertThat(exception)
-                .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage("Bean with name: \"" + SOME_NAME + "\" already exist.");
-    }
-
-    @Test
     public void shouldRecognizeWhenBeanWithGivenIdDoesNotExist() {
         givenSomePersistedBean();
 
