@@ -8,4 +8,6 @@ public interface BeanRepository {
     boolean existWithName(String name);
 
     Bean getById(String id);
+
+    void remove(String id);
 }

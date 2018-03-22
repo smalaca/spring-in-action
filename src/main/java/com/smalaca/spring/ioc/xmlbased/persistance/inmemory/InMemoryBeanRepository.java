@@ -41,4 +41,13 @@ class InMemoryBeanRepository implements BeanRepository {
 
         return beanWithId;
     }
+
+    @Override
+    public void remove(String id) {
+        if (existWithId(id)) {
+            beans.remove(id);
+        } else {
+            throw new NullPointerException("There is no value for given id: " + id + ".");
+        }
+    }
 }
