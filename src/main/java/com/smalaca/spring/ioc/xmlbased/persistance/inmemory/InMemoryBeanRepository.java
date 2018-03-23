@@ -6,6 +6,8 @@ import com.smalaca.spring.ioc.xmlbased.domain.BeanRepository;
 import java.util.HashMap;
 import java.util.Map;
 
+import static com.smalaca.spring.ioc.xmlbased.domain.Bean.Builder.aBean;
+
 class InMemoryBeanRepository implements BeanRepository {
     private final Map<String, Bean> beans = new HashMap<>();
     private final UniqueIdentifierFactory uniqueIdentifierFactory;
@@ -36,7 +38,7 @@ class InMemoryBeanRepository implements BeanRepository {
     @Override
     public Bean persist(Bean bean) {
         String id = uniqueIdentifierFactory.anId();
-        Bean beanWithId = Bean.Builder.aBean(bean).withId(id).build();
+        Bean beanWithId = aBean(bean.asDto().withId(id)).build();
         beans.put(id, beanWithId);
 
         return beanWithId;
