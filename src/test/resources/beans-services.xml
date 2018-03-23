@@ -1,0 +1,35 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+            http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans-4.0.xsd">
+
+    <bean id="uniqueIdentifierFactory" class="com.smalaca.spring.ioc.xmlbased.persistance.inmemory.UniqueIdentifierFactory"/>
+
+    <bean id="singletonRepository" class="com.smalaca.spring.ioc.xmlbased.persistance.inmemory.InMemoryBeanRepository">
+        <constructor-arg ref="uniqueIdentifierFactory"/>
+    </bean>
+
+    <bean id="beansServiceWithSingletorMaster" class="com.smalaca.spring.ioc.xmlbased.service.BeansService">
+        <constructor-arg ref="singletonRepository"/>
+    </bean>
+
+    <bean id="beansServiceWithSingletorSlave" class="com.smalaca.spring.ioc.xmlbased.service.BeansService">
+        <constructor-arg ref="singletonRepository"/>
+    </bean>
+
+    <bean
+            id="prototypeRepository"
+            class="com.smalaca.spring.ioc.xmlbased.persistance.inmemory.InMemoryBeanRepository"
+            scope="prototype">
+        <constructor-arg ref="uniqueIdentifierFactory"/>
+    </bean>
+
+    <bean id="beansServiceWithPrototypePrimary" class="com.smalaca.spring.ioc.xmlbased.service.BeansService">
+        <constructor-arg ref="prototypeRepository"/>
+    </bean>
+
+    <bean id="beansServiceWithPrototypeBcp" class="com.smalaca.spring.ioc.xmlbased.service.BeansService">
+        <constructor-arg ref="prototypeRepository"/>
+    </bean>
+</beans>
