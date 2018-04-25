@@ -66,6 +66,26 @@ public class InMemoryBeanRepositoryTest {
     }
 
     @Test
+    public void shouldThrowExceptionWhenRemovesNotExistingBean() {
+        givenSomePersistedBean();
+
+        Throwable exception = catchThrowable(() -> repository.remove(DIFFERENT_ID));
+
+        assertThat(exception)
+                .isInstanceOf(NullPointerException.class)
+                .hasMessage("There is no value for given id: " + DIFFERENT_ID + ".");
+    }
+
+    @Test
+    public void shouldRemoveBean() {
+        givenSomePersistedBean();
+
+        repository.remove(SOME_ID);
+
+        assertThat(repository.existWithId(SOME_ID)).isFalse();
+    }
+
+    @Test
     public void shouldThrowExceptionWhenGetsNotExistingBean() {
         givenSomePersistedBean();
 

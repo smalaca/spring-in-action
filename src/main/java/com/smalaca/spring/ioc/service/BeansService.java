@@ -29,4 +29,12 @@ public class BeansService {
         Bean bean = aBean(beanDto).build();
         return beanRepository.persist(bean).asDto();
     }
+
+    public void remove(String id) {
+        if (beanRepository.existWithId(id)) {
+            beanRepository.remove(id);
+        } else {
+            throw new NotExistingBeanException(id);
+        }
+    }
 }

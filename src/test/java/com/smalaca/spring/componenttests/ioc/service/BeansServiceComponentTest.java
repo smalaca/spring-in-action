@@ -76,6 +76,28 @@ public class BeansServiceComponentTest {
                 .hasMessage("Bean with given name: '" + name + "', already exists");
     }
 
+    @Test
+    public void shouldThrowExceptionWhenDeletingNotExistBean() {
+        String id = randomId();
+
+        Throwable exception = catchThrowable(() -> beansService.remove(id));
+
+        assertThat(exception)
+                .isInstanceOf(NotExistingBeanException.class)
+                .hasMessage("There is no bean with given id: " + id);
+    }
+
+    @Test
+    public void shouldRemoveBean() {
+        BeanDto persisted = beansService.createNew(aBean(randomName(), randomDescription()).build());
+
+        beansService.remove(persisted.id());
+
+        assertThat(catchThrowable(() -> beansService.getBeanDto(persisted.id())))
+                .isInstanceOf(NotExistingBeanException.class)
+                .hasMessage("There is no bean with given id: " + persisted.id());
+    }
+
     private String randomDescription() {
         return randomString();
     }
