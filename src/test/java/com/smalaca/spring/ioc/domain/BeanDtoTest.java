@@ -25,9 +25,32 @@ public class BeanDtoTest {
         assertBeanDto(beanDto, SOME_ID);
     }
 
+    @Test
+    public void shouldReturnBeanWithId() {
+        BeanDto beanDto = aBean(SOME_NAME, SOME_DESCRIPTION).build();
+
+        BeanDto result = beanDto.withId(SOME_ID);
+
+        assertBeanDto(result, SOME_ID);
+    }
+
     private void assertBeanDto(BeanDto beanDto, String id) {
         assertThat(beanDto.id()).isEqualTo(id);
         assertThat(beanDto.name()).isEqualTo(SOME_NAME);
         assertThat(beanDto.description()).isEqualTo(SOME_DESCRIPTION);
+    }
+
+    @Test
+    public void shouldRecognizeWhenHaveNoId() {
+        BeanDto beanDto = aBean(SOME_NAME, SOME_DESCRIPTION).build();
+
+        assertThat(beanDto.hasId()).isFalse();
+    }
+
+    @Test
+    public void shouldRecognizeWhenHasId() {
+        BeanDto beanDto = aBean(SOME_NAME, SOME_DESCRIPTION).withId(SOME_ID).build();
+
+        assertThat(beanDto.hasId()).isTrue();
     }
 }

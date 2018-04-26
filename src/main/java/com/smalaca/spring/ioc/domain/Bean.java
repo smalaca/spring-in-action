@@ -36,16 +36,17 @@ public class Bean {
         }
 
         public static Builder aBean(BeanDto beanDto) {
-            return new Builder(beanDto.name(), beanDto.description());
+            Builder builder = new Builder(beanDto.name(), beanDto.description());
+
+            if (beanDto.hasId()) {
+                builder.withId(beanDto.id());
+            }
+
+            return builder;
         }
 
-        public static Builder aBean(Bean bean) {
-            return new Builder(bean.name, bean.description);
-        }
-
-        public Builder withId(String id) {
+        private void withId(String id) {
             this.id = id;
-            return this;
         }
 
         public Bean build() {

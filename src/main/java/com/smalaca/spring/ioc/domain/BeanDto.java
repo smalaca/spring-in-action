@@ -1,6 +1,10 @@
 package com.smalaca.spring.ioc.domain;
 
+import static com.smalaca.spring.ioc.domain.BeanDto.Builder.aBean;
+
 public class BeanDto {
+    private static final String NO_ID = "";
+
     private final String name;
     private final String description;
     private final String id;
@@ -23,9 +27,15 @@ public class BeanDto {
         return description;
     }
 
-    public static class Builder {
-        private static final String NO_ID = "";
+    public boolean hasId() {
+        return !NO_ID.equals(id());
+    }
 
+    public BeanDto withId(String id) {
+        return aBean(name(), description()).withId(id).build();
+    }
+
+    public static class Builder {
         private final String name;
         private final String description;
         private String id;

@@ -15,25 +15,21 @@ public class BeanTest {
         Bean bean = Bean.Builder.aBean(givenBeanDto()).build();
 
         assertBean(bean);
-    }
-
-    @Test
-    public void shouldCreateBeanFromAnotherBean() {
-        Bean bean = Bean.Builder.aBean(givenBean()).build();
-
-        assertBean(bean);
+        assertThat(bean.asDto().id()).isNull();
     }
 
     @Test
     public void shouldCreateBeanWithId() {
-        Bean bean = Bean.Builder.aBean(givenBean()).withId(SOME_ID).build();
+        BeanDto beanDtoWithId = givenBeanDto().withId(SOME_ID);
 
+        Bean bean = Bean.Builder.aBean(beanDtoWithId).build();
+
+        assertBean(bean);
         assertThat(bean.asDto().id()).isEqualTo(SOME_ID);
     }
 
     private void assertBean(Bean bean) {
         BeanDto beanDto = bean.asDto();
-        assertThat(beanDto.id()).isNull();
         assertThat(beanDto.name()).isEqualTo(SOME_NAME);
         assertThat(beanDto.description()).isEqualTo(SOME_DESCRIPTION);
     }
