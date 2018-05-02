@@ -4,11 +4,11 @@
             http://www.springframework.org/schema/beans
             http://www.springframework.org/schema/beans/spring-beans-4.0.xsd">
 
-    <bean class="com.smalaca.spring.ioc.xmlbased.service.BeansService">
+    <bean class="com.smalaca.spring.ioc.service.BeansService">
         <constructor-arg>
-            <bean class="com.smalaca.spring.ioc.xmlbased.persistance.inmemory.InMemoryBeanRepository">
+            <bean class="com.smalaca.spring.ioc.persistance.inmemory.InMemoryBeanRepository">
                 <constructor-arg>
-                    <bean class="com.smalaca.spring.ioc.xmlbased.persistance.inmemory.UniqueIdentifierFactory"/>
+                    <bean class="com.smalaca.spring.ioc.persistance.inmemory.UniqueIdentifierFactory"/>
                 </constructor-arg>
             </bean>
         </constructor-arg>

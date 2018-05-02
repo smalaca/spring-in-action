@@ -1,12 +1,12 @@
-package com.smalaca.spring.ioc.xmlbased.persistance.inmemory;
+package com.smalaca.spring.ioc.persistance.inmemory;
 
-import com.smalaca.spring.ioc.xmlbased.domain.Bean;
-import com.smalaca.spring.ioc.xmlbased.domain.BeanRepository;
+import com.smalaca.spring.ioc.domain.Bean;
+import com.smalaca.spring.ioc.domain.BeanRepository;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import static com.smalaca.spring.ioc.xmlbased.domain.Bean.Builder.aBean;
+import static com.smalaca.spring.ioc.domain.Bean.Builder.aBean;
 
 class InMemoryBeanRepository implements BeanRepository {
     private final Map<String, Bean> beans = new HashMap<>();

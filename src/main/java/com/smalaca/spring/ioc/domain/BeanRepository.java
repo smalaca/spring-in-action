@@ -1,4 +1,4 @@
-package com.smalaca.spring.ioc.xmlbased.domain;
+package com.smalaca.spring.ioc.domain;
 
 public interface BeanRepository {
     Bean persist(Bean bean);

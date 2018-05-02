@@ -1,6 +1,4 @@
-package com.smalaca.spring.ioc.xmlbased.domain;
-
-import static com.smalaca.spring.ioc.xmlbased.domain.BeanDto.Builder.aBean;
+package com.smalaca.spring.ioc.domain;
 
 public class Bean {
     private final String name;
@@ -18,7 +16,7 @@ public class Bean {
     }
 
     public BeanDto asDto() {
-        return aBean(name, description).withId(id).build();
+        return BeanDto.Builder.aBean(name, description).withId(id).build();
     }
 
     public boolean hasNameEqualTo(String name) {

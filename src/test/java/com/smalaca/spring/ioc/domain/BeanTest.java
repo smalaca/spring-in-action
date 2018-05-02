@@ -1,4 +1,4 @@
-package com.smalaca.spring.ioc.xmlbased.domain;
+package com.smalaca.spring.ioc.domain;
 
 import org.junit.Test;
 

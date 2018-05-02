@@ -1,4 +1,4 @@
-package com.smalaca.spring.ioc.xmlbased.service;
+package com.smalaca.spring.ioc.service;
 
 public class AlreadyExistingBeanException extends RuntimeException {
 

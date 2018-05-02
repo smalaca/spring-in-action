@@ -1,4 +1,4 @@
-package com.smalaca.spring.ioc.xmlbased.persistance.inmemory;
+package com.smalaca.spring.ioc.persistance.inmemory;
 
 import org.junit.Test;
 

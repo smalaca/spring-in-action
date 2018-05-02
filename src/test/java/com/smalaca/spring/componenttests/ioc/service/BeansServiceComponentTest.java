@@ -1,9 +1,9 @@
-package com.smalaca.spring.componenttests.ioc.xmlbased.service;
+package com.smalaca.spring.componenttests.ioc.service;
 
-import com.smalaca.spring.ioc.xmlbased.domain.BeanDto;
-import com.smalaca.spring.ioc.xmlbased.service.AlreadyExistingBeanException;
-import com.smalaca.spring.ioc.xmlbased.service.BeansService;
-import com.smalaca.spring.ioc.xmlbased.service.NotExistingBeanException;
+import com.smalaca.spring.ioc.domain.BeanDto;
+import com.smalaca.spring.ioc.service.AlreadyExistingBeanException;
+import com.smalaca.spring.ioc.service.BeansService;
+import com.smalaca.spring.ioc.service.NotExistingBeanException;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +12,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import java.util.UUID;
 
-import static com.smalaca.spring.ioc.xmlbased.domain.BeanDto.Builder.aBean;
+import static com.smalaca.spring.ioc.domain.BeanDto.Builder.aBean;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.catchThrowable;
 

@@ -1,7 +1,7 @@
-package com.smalaca.spring.ioc.xmlbased.persistance.inmemory;
+package com.smalaca.spring.ioc.persistance.inmemory;
 
-import com.smalaca.spring.ioc.xmlbased.domain.Bean;
-import com.smalaca.spring.ioc.xmlbased.domain.BeanDto;
+import com.smalaca.spring.ioc.domain.Bean;
+import com.smalaca.spring.ioc.domain.BeanDto;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

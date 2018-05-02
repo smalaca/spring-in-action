@@ -1,6 +1,6 @@
-package com.smalaca.spring.ioc.xmlbased.domain;
+package com.smalaca.spring.ioc.domain;
 
-import static com.smalaca.spring.ioc.xmlbased.domain.BeanDto.Builder.aBean;
+import static com.smalaca.spring.ioc.domain.BeanDto.Builder.aBean;
 
 public class BeanDto {
     private static final String NO_ID = "";

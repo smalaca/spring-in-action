@@ -1,10 +1,10 @@
-package com.smalaca.spring.ioc.xmlbased.service;
+package com.smalaca.spring.ioc.service;
 
-import com.smalaca.spring.ioc.xmlbased.domain.Bean;
-import com.smalaca.spring.ioc.xmlbased.domain.BeanDto;
-import com.smalaca.spring.ioc.xmlbased.domain.BeanRepository;
+import com.smalaca.spring.ioc.domain.Bean;
+import com.smalaca.spring.ioc.domain.BeanDto;
+import com.smalaca.spring.ioc.domain.BeanRepository;
 
-import static com.smalaca.spring.ioc.xmlbased.domain.Bean.Builder.aBean;
+import static com.smalaca.spring.ioc.domain.Bean.Builder.aBean;
 
 public class BeansService {
     private final BeanRepository beanRepository;

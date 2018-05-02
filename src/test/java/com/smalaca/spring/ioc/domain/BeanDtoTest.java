@@ -1,8 +1,7 @@
-package com.smalaca.spring.ioc.xmlbased.domain;
+package com.smalaca.spring.ioc.domain;
 
 import org.junit.Test;
 
-import static com.smalaca.spring.ioc.xmlbased.domain.BeanDto.Builder.aBean;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class BeanDtoTest {
@@ -13,21 +12,21 @@ public class BeanDtoTest {
 
     @Test
     public void shouldCreateBeanWithNoId() {
-        BeanDto beanDto = aBean(SOME_NAME, SOME_DESCRIPTION).build();
+        BeanDto beanDto = BeanDto.Builder.aBean(SOME_NAME, SOME_DESCRIPTION).build();
 
         assertBeanDto(beanDto, NO_ID);
     }
 
     @Test
     public void shouldCreateBeanWithId() {
-        BeanDto beanDto = aBean(SOME_NAME, SOME_DESCRIPTION).withId(SOME_ID).build();
+        BeanDto beanDto = BeanDto.Builder.aBean(SOME_NAME, SOME_DESCRIPTION).withId(SOME_ID).build();
 
         assertBeanDto(beanDto, SOME_ID);
     }
 
     @Test
     public void shouldReturnBeanWithId() {
-        BeanDto beanDto = aBean(SOME_NAME, SOME_DESCRIPTION).build();
+        BeanDto beanDto = BeanDto.Builder.aBean(SOME_NAME, SOME_DESCRIPTION).build();
 
         BeanDto result = beanDto.withId(SOME_ID);
 
@@ -42,14 +41,14 @@ public class BeanDtoTest {
 
     @Test
     public void shouldRecognizeWhenHaveNoId() {
-        BeanDto beanDto = aBean(SOME_NAME, SOME_DESCRIPTION).build();
+        BeanDto beanDto = BeanDto.Builder.aBean(SOME_NAME, SOME_DESCRIPTION).build();
 
         assertThat(beanDto.hasId()).isFalse();
     }
 
     @Test
     public void shouldRecognizeWhenHasId() {
-        BeanDto beanDto = aBean(SOME_NAME, SOME_DESCRIPTION).withId(SOME_ID).build();
+        BeanDto beanDto = BeanDto.Builder.aBean(SOME_NAME, SOME_DESCRIPTION).withId(SOME_ID).build();
 
         assertThat(beanDto.hasId()).isTrue();
     }
